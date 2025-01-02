@@ -1,8 +1,8 @@
-package com.rishirajput.domain.usecase
+package org.rishirajput.weatherkmp.domain.usecase
 
-import com.rishirajput.domain.model.WeatherData
-import com.rishirajput.domain.repository.WeatherRepository
-import com.rishirajput.domain.model.Result
+import org.rishirajput.weatherkmp.domain.models.WeatherData
+import org.rishirajput.weatherkmp.domain.repository.WeatherRepository
+import org.rishirajput.weatherkmp.domain.models.Result
 
 /**
  * Use case for fetching weather data based on a query.

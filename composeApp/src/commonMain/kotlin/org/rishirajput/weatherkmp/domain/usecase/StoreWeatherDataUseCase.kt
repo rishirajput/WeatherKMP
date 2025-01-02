@@ -1,7 +1,7 @@
-package com.rishirajput.domain.usecase
+package org.rishirajput.weatherkmp.domain.usecase
 
-import com.rishirajput.domain.model.WeatherData
-import com.rishirajput.domain.repository.LocalStorageRepository
+import org.rishirajput.weatherkmp.domain.models.WeatherData
+import org.rishirajput.weatherkmp.domain.repository.LocalStorageRepository
 
 /**
  * Use case for storing weather data in local storage.

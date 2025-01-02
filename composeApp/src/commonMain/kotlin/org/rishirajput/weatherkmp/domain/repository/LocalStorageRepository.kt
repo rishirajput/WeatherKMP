@@ -1,6 +1,6 @@
-package com.rishirajput.domain.repository
+package org.rishirajput.weatherkmp.domain.repository
 
-import com.rishirajput.domain.model.WeatherData
+import org.rishirajput.weatherkmp.domain.models.WeatherData
 
 /**
  * Interface representing a local storage repository for weather data.

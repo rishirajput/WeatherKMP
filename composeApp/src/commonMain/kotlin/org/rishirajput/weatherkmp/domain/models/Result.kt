@@ -1,4 +1,4 @@
-package com.rishirajput.domain.model
+package org.rishirajput.weatherkmp.domain.models
 
 /**
  * A sealed class representing the result of an operation, which can be a success, error, or loading state.
