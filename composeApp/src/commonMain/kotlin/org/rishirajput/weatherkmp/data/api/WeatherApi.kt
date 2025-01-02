@@ -2,6 +2,7 @@ package org.rishirajput.weatherkmp.data.api
 
 import org.rishirajput.weatherkmp.domain.models.Location
 import org.rishirajput.weatherkmp.domain.models.WeatherResponse
+import org.rishirajput.weatherkmp.domain.models.Result
 
 /**
  * Service interface for accessing weather-related API endpoints.

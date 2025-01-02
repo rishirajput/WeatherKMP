@@ -8,6 +8,7 @@ import io.ktor.http.HttpStatusCode
 import io.ktor.utils.io.CancellationException
 import org.rishirajput.weatherkmp.domain.models.Location
 import org.rishirajput.weatherkmp.domain.models.WeatherResponse
+import org.rishirajput.weatherkmp.domain.models.Result
 
 class KTorWeatherApi(private val client: HttpClient) : WeatherApi {
     companion object {
@@ -24,14 +25,14 @@ class KTorWeatherApi(private val client: HttpClient) : WeatherApi {
             }
             if (response.status == HttpStatusCode.OK) {
                 val weatherResponse: WeatherResponse = response.body()
-                Result.success(weatherResponse)
+                Result.Success(weatherResponse)
             } else {
-                Result.failure(Exception("Error: ${response.status}"))
+                Result.Error(Exception("Error: ${response.status}"))
             }
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
-            Result.failure(e)
+            Result.Error(e)
         }
     }
 
@@ -45,14 +46,14 @@ class KTorWeatherApi(private val client: HttpClient) : WeatherApi {
             }
             if (response.status == HttpStatusCode.OK) {
                 val locations: List<Location> = response.body()
-                Result.success(locations)
+                Result.Success(locations)
             } else {
-                Result.failure(Exception("Error: ${response.status}"))
+                Result.Error(Exception("Error: ${response.status}"))
             }
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
-            Result.failure(e)
+            Result.Error(e)
         }
     }
 }
