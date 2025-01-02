@@ -1,15 +1,13 @@
 package org.rishirajput.weatherkmp.data.serializer
 
-import kotlinx.serialization.Serializable
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import org.rishirajput.weatherkmp.domain.models.WeatherData
 
 /**
  * Serializer for WeatherData using Kotlinx Serialization.
  */
 object WeatherDataSerializer {
-    @Serializable
-    data class WeatherData(val temperature: Double, val humidity: Double)
 
     val defaultValue: WeatherData? = null
 
