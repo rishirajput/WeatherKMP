@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="search_location">Search Location</string>
+    <string name="no_city_selected">No City Selected</string>
+    <string name="please_search_for_a_city">Please Search For A City</string>
+    <string name="error_message">Oops! Something went wrong.</string>
+    <string name="network_error">Network error: Please check your internet connection.</string>
+    <string name="not_found_error">Error! Data Not Found.</string>
+    <string name="invalid_city_name">Invalid City Name</string>
+    <string name="degree_icon">Degree Icon</string>
+    <string name="error">Error: %1$s</string>
+    <string name="location_icon">Location Icon</string>
+    <string name="weather_icon">Weather Icon</string>
+    <string name="search_icon">Search Icon</string>
+    <string name="humidity">Humidity</string>
+    <string name="uv">UV</string>
+    <string name="feels_like">Feels Like</string>
+</resources>
