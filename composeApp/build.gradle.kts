@@ -22,7 +22,11 @@ buildkonfig {
     packageName = "org.rishirajput.weatherkmp"
     defaultConfigs {
         val weatherApiKey: String? by project
-        buildConfigField(STRING, "WEATHER_API_KEY", weatherApiKey ?: localProperties.getProperty("weatherApiKey"))
+        buildConfigField(
+            STRING,
+            "WEATHER_API_KEY",
+            weatherApiKey ?: localProperties.getProperty("weatherApiKey")
+        )
     }
 }
 
@@ -33,7 +37,7 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -44,9 +48,9 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     jvm("desktop")
-    
+
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
         moduleName = "composeApp"
@@ -66,7 +70,7 @@ kotlin {
         }
         binaries.executable()
     }
-    
+
     sourceSets {
         val desktopMain by getting
         
@@ -95,7 +99,7 @@ kotlin {
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
-            implementation(libs.ktor.client.cio)
+//            implementation(libs.ktor.client.cio)
 
             implementation(libs.coil.compose)
             implementation(libs.coil.network.ktor)
@@ -110,48 +114,51 @@ kotlin {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)
         }
+        wasmJsMain.dependencies {
+            implementation(libs.ktor.client.js)
+        }
     }
 }
 
 android {
-    namespace = "org.rishirajput.weatherkmp"
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
+namespace = "org.rishirajput.weatherkmp"
+compileSdk = libs.versions.android.compileSdk.get().toInt()
 
-    defaultConfig {
-        applicationId = "org.rishirajput.weatherkmp"
-        minSdk = libs.versions.android.minSdk.get().toInt()
-        targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 1
-        versionName = "1.0"
-    }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
-        }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
+defaultConfig {
+applicationId = "org.rishirajput.weatherkmp"
+minSdk = libs.versions.android.minSdk.get().toInt()
+targetSdk = libs.versions.android.targetSdk.get().toInt()
+versionCode = 1
+versionName = "1.0"
+}
+packaging {
+resources {
+excludes += "/META-INF/{AL2.0,LGPL2.1}"
+}
+}
+buildTypes {
+getByName("release") {
+isMinifyEnabled = false
+}
+}
+compileOptions {
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+}
 }
 
 dependencies {
-    debugImplementation(compose.uiTooling)
+debugImplementation(compose.uiTooling)
 }
 
 compose.desktop {
-    application {
-        mainClass = "org.rishirajput.weatherkmp.MainKt"
+application {
+mainClass = "org.rishirajput.weatherkmp.MainKt"
 
-        nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "org.rishirajput.weatherkmp"
-            packageVersion = "1.0.0"
-        }
-    }
+nativeDistributions {
+targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+packageName = "org.rishirajput.weatherkmp"
+packageVersion = "1.0.0"
+}
+}
 }
