@@ -1,3 +1,8 @@
+# WeatherKMP
+
+WeatherKMP is a Kotlin Multiplatform project targeting Android, iOS, Web, Desktop, and Server. This project demonstrates the use of Kotlin Multiplatform to share code across different platforms, leveraging Compose Multiplatform for UI and Ktor for server-side development.
+
+## Project Structure
 This is a Kotlin Multiplatform project targeting Android, iOS, Web, Desktop, Server.
 
 * `/composeApp` is for code that will be shared across your Compose Multiplatform applications.
@@ -24,3 +29,32 @@ We would appreciate your feedback on Compose/Web and Kotlin/Wasm in the public S
 If you face any issues, please report them on [GitHub](https://github.com/JetBrains/compose-multiplatform/issues).
 
 You can open the web application by running the `:composeApp:wasmJsBrowserDevelopmentRun` Gradle task.
+
+## Getting Started
+
+### Prerequisites
+
+- [Kotlin](https://kotlinlang.org/)
+- [Gradle](https://gradle.org/)
+- [Yarn](https://yarnpkg.com/)
+
+### Building the Project
+
+To build the project, run the following command:
+
+```sh
+./gradlew build
+```
+
+Running the Web Application
+To run the web application, execute the following Gradle task:
+
+./gradlew :composeApp:wasmJsBrowserDevelopmentRun
+
+Learn More
+Kotlin Multiplatform
+Compose Multiplatform
+Kotlin/Wasm
+
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
