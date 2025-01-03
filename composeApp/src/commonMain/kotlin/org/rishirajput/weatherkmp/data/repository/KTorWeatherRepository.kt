@@ -25,7 +25,7 @@ class KTorWeatherRepository(
 
         delay(debounceDelay)
 
-        return withContext(Dispatchers.IO) {
+        return withContext(Dispatchers.Default) {
             try {
                 val locationsResult = getLocations(query)
                 if (locationsResult is Result.Success) {
