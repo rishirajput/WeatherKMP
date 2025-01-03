@@ -33,7 +33,7 @@ val dataModule = module {
 
 @OptIn(ExperimentalSerializationApi::class)
 fun provideKTorWeatherApi(): KTorWeatherApi {
-    val client = HttpClient(CIO) {
+    val client = HttpClient {
         install(ContentNegotiation) {
             json(Json { ignoreUnknownKeys = true })
         }
