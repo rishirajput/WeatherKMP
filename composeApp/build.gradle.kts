@@ -99,7 +99,6 @@ kotlin {
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
-//            implementation(libs.ktor.client.cio)
 
             implementation(libs.coil.compose)
             implementation(libs.coil.network.ktor)
@@ -112,6 +111,7 @@ kotlin {
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
+            implementation(libs.ktor.client.cio)
             implementation(libs.kotlinx.coroutines.swing)
         }
         wasmJsMain.dependencies {
