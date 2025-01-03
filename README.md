@@ -1,12 +1,84 @@
 # WeatherKMP
 
-WeatherKMP is a Kotlin Multiplatform project targeting Android, iOS, Web, Desktop. This project demonstrates the use of Kotlin Multiplatform to share code across different platforms, leveraging Compose Multiplatform for shared UI and Kotlin for shared business logic and data handling.
-
+WeatherKMP is a Kotlin Multiplatform project targeting Android, iOS, Web, Desktop. This project demonstrates the use of Kotlin Multiplatform to share code across different platforms, leveraging Compose Multiplatform for shared UI and Kotlin for shared business logic and data handling. The app provides current weather information for a specified city.
 
 
 | Android       | iOS | Desktop | Web |
 |---------------|-----|---------|-----|
 | <img src="screenshots/android.png" alt="Splash Screen" width="280"/> | <img src="screenshots/iOS.png" alt="Splash Screen" width="280"/> | <img src="screenshots/desktop.png" alt="Splash Screen" width="280"/> | <img src="screenshots/web.png" alt="Splash Screen" width="280"/> |
+
+## Features
+
+- Display current temperature with a degree icon
+- Show error messages using Snackbar for network issues and invalid city names
+
+## Project Setup
+
+### Prerequisites
+
+- Android Studio Ladybug | 2024.2.1 Patch 3
+- Kotlin 1.8.0 or higher
+- Gradle 7.0 or higher
+
+### Clone the Repository
+
+```sh
+git clone https://github.com/rishirajput/WeatherKMP
+cd WeatherKMP
+```
+### Provide Weather API Key
+
+To provide the Weather API key, you have the following options:
+
+1. **Via Android Studio Settings**:
+    - Go to `Android Studio -> Settings -> Build, Execution, Deployment -> Gradle-Android-Compiler`
+    - Enter the following in the command line options: `-PweatherApiKey=YOUR_API_KEY`
+
+2. **Via `local.properties` File**:
+    - Open `local.properties` file in the root of your project and add the following line:
+    ```properties
+    weatherApiKey=YOUR_API_KEY
+    ```
+
+3. **Via Command Line**:
+    - Pass the API key as a command line option when building or running the project:
+    ```sh
+    ./gradlew assembleDebug -PweatherApiKey=YOUR_API_KEY
+    ```
+## Architecture
+
+This project follows Clean Architecture principles with MVVM (Model-View-ViewModel) pattern to ensure clean, modular, and testable code. The architecture is divided into three main layers:
+
+1. **Presentation Layer**: Contains UI components and ViewModels.
+2. **Domain Layer**: Contains business logic and use cases.
+3. **Data Layer**: Contains data sources and repositories.
+
+### Presentation Layer
+
+- **ViewModel**: Manages UI-related data and handles user interactions.
+- **Composable Functions**: Define the UI components using Jetpack Compose.
+
+### Domain Layer
+
+- **Use Cases**: Encapsulate business logic and interact with repositories.
+- **Entities**: Represent core business objects.
+
+### Data Layer
+
+- **Repositories**: Provide data from various sources (e.g., network, database).
+- **Data Sources**: Handle data operations (e.g., API calls, database queries).
+
+### Example
+
+Here is an example of how the layers interact:
+
+- **ViewModel**: Fetches weather data using a use case and exposes it to the UI.
+- **Use Case**: Retrieves weather data from the repository.
+- **Repository**: Fetches weather data from a remote data source (e.g., API).
+
+### Dependency Injection
+
+This project uses Koin for dependency injection.
 
 ## Project Structure
 This is a Kotlin Multiplatform project targeting Android, iOS, Web, Desktop.
@@ -45,10 +117,6 @@ To build the project, run the following command:
 ./gradlew build
 ```
 
-Learn More
-Kotlin Multiplatform
-Compose Multiplatform
-Kotlin/Wasm
+## License
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License. See the `LICENSE` file for more details.
