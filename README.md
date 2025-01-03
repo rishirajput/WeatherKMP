@@ -1,6 +1,6 @@
 # WeatherKMP
 
-WeatherKMP is a Kotlin Multiplatform project targeting Android, iOS, Web, Desktop. This project demonstrates the use of Kotlin Multiplatform to share code across different platforms, leveraging Compose Multiplatform for UI and Ktor for server-side development.
+WeatherKMP is a Kotlin Multiplatform project targeting Android, iOS, Web, Desktop. This project demonstrates the use of Kotlin Multiplatform to share code across different platforms, leveraging Compose Multiplatform for shared UI and Kotlin for shared business logic and data handling.
 
 
 
