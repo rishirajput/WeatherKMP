@@ -4,6 +4,7 @@ import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 import com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING
+import java.util.Properties
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -14,11 +15,14 @@ plugins {
     alias(libs.plugins.buildKonfig)
 }
 
+val localProperties = Properties().apply {
+    load(rootProject.file("local.properties").inputStream())
+}
 buildkonfig {
     packageName = "org.rishirajput.weatherkmp"
     defaultConfigs {
         val weatherApiKey: String? by project
-        buildConfigField(STRING, "WEATHER_API_KEY", weatherApiKey ?: "")
+        buildConfigField(STRING, "WEATHER_API_KEY", weatherApiKey ?: localProperties.getProperty("weatherApiKey"))
     }
 }
 
@@ -99,6 +103,8 @@ kotlin {
             implementation(libs.koin.compose.viewmodel)
             implementation(libs.navigation.compose)
             implementation(libs.multiplatformSettings)
+
+            implementation(libs.kermit)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
